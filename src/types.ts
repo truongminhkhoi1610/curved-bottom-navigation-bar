@@ -3,6 +3,7 @@ export interface TabConfigsType {
     icon:
     ((props: {
         progress: Animated.Node<number>;
+        focused: Boolean
     }) => React.ReactNode)
 }
 
@@ -51,6 +52,8 @@ export interface TabBarViewProps
 
     barHeight: number;
 
+    selectedTabIndex: number,
+
 }
 
 export interface TabBarItemProps extends TabConfigsType {
@@ -65,9 +68,11 @@ export interface TabBarItemProps extends TabConfigsType {
 
     indexAnimated: Animated.Node<number>;
 
-    clock:Animated.Clock;
+    clock: Animated.Clock;
 
     width: number;
+
+    selectedTabIndex: number;
 }
 export interface DotProps {
     /**
@@ -90,4 +95,6 @@ export interface DotProps {
     dotColor: string;
 
     barHeight: number;
+
+    selectedTabIndex: number;
 }
