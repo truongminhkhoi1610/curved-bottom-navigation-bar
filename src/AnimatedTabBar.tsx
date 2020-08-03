@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useEffect } from 'react';
+import React, { useMemo, useCallback, useEffect, useState } from 'react';
 import Animated, { useCode, call, set } from 'react-native-reanimated';
 import { useValues } from 'react-native-redash';
 import { CommonActions, Route } from '@react-navigation/native';
@@ -45,6 +45,7 @@ export const AnimatedTabBar = (props: AnimatedTabBarProps) => {
 
   // variables
   const isReactNavigation5 = props.state ? true : false;
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0)
   // @ts-ignore
   const {
     routes,
@@ -102,6 +103,7 @@ export const AnimatedTabBar = (props: AnimatedTabBarProps) => {
   }, [routes, getRouteTitle, getRouteTabConfigs]);
 
   const handleSelectedIndexChange = (index: number) => {
+    setSelectedTabIndex(index)
     if (isReactNavigation5) {
       const { key, name } = routes[index];
       const event = navigation.emit({
