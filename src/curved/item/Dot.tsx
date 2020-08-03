@@ -8,7 +8,7 @@ import { HEIGHT_HOLE } from '../constant'
 
 
 const DotComponent = (props: DotProps) => {
-    const { selectedIndex, routes, progress, width,dotColor, dotSize, barHeight } = props;
+    const { selectedIndex, routes, progress, width,dotColor, dotSize, barHeight, selectedTabIndex } = props;
     const translateX = interpolate(selectedIndex, {
         inputRange: routes.map((item: any, index: number) => index),
         outputRange: routes.map((item: any, index: number) =>
@@ -45,7 +45,7 @@ const DotComponent = (props: DotProps) => {
             <Animated.View style={iconContainerStyle}>
                 {routes.map(({ icon }, index: number) =>
                     <IconDot key={index} index={index} selectedIndex={selectedIndex}>
-                        {icon({ progress })}
+                        {icon({ progress, focused: selectedTabIndex == index  })}
                     </IconDot>)}
             </Animated.View>
         </Animated.View>
