@@ -26,7 +26,8 @@ const CurvedTabBarComponent = (props: TabBarViewProps) => {
         barHeight: TAB_BAR_HEIGHT,
         duration,
         dotColor,
-        tabBarColor } = props;
+        tabBarColor,
+        selectedTabIndex} = props;
 
     const [width, setWidth] = useState(Dimensions.get('window').width)
     const safeArea = useSafeArea()
@@ -101,7 +102,7 @@ const CurvedTabBarComponent = (props: TabBarViewProps) => {
                 </AnimatedSvg>
             </View>
             <View style={rowTab} >
-                <Dot dotColor={dotColor} dotSize={SIZE_DOT} barHeight={TAB_BAR_HEIGHT} width={width} selectedIndex={indexAnimated} routes={routes} progress={progress} />
+                <Dot dotColor={dotColor} dotSize={SIZE_DOT} barHeight={TAB_BAR_HEIGHT} width={width} selectedIndex={indexAnimated} routes={routes} progress={progress} selectedTabIndex={selectedTabIndex} />
                 {routes.map(({ key, ...configs }, index) => {
                     return <ButtonTabItem
                         width={width}
