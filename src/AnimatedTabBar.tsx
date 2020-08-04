@@ -160,6 +160,7 @@ export const AnimatedTabBar = (props: AnimatedTabBarProps) => {
       selectedIndex={selectedIndex}
       routes={getRoutes()}
       duration={duration}
+      selectedTabIndex={selectedTabIndex}
     />
   );
 };
