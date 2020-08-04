@@ -37,7 +37,15 @@ const DotComponent = (props: DotProps) => {
             height: dotSize,
             bottom: 0,
             borderRadius: dotSize / 2,
-            transform: [{ translateX: translateX }, { translateY }]
+            transform: [{ translateX: translateX }, { translateY }],
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3,
+            elevation: 2
         }
     ]
     return (
