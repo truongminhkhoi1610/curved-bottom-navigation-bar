@@ -72,7 +72,6 @@ export interface TabBarItemProps extends TabConfigsType {
 
     width: number;
 
-    selectedTabIndex: number;
 }
 export interface DotProps {
     /**
